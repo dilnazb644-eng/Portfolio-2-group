@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио второй подгруппы ИНФ-22</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --cosmic-dark: #0a0e27;
+            --cosmic-blue: #1a237e;
+            --cosmic-light-blue: #283593;
+            --cosmic-cyan: #00d4ff;
+            --cosmic-white: #ffffff;
+            --cosmic-accent: #64b5f6;
+            --cosmic-purple: #7c4dff;
+            --cosmic-light: #e3f2fd;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 212, 255, 0.1);
+            --shadow-md: 0 4px 16px rgba(0, 212, 255, 0.15);
+            --shadow-lg: 0 8px 32px rgba(0, 212, 255, 0.2);
+            --shadow-xl: 0 12px 48px rgba(0, 212, 255, 0.3);
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--cosmic-dark) 0%, var(--cosmic-blue) 50%, var(--cosmic-dark) 100%);
+            color: var(--cosmic-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 60px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 50px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 10px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 5s infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, var(--cosmic-dark) 0%, var(--cosmic-blue) 50%, var(--cosmic-dark) 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            border-bottom: 2px solid var(--cosmic-cyan);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--cosmic-cyan);
+            text-decoration: none;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .nav-logo i {
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--cosmic-white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover {
+            color: var(--cosmic-cyan);
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+        }
+
+        .nav-link i {
+            font-size: 1.3rem;
+            animation: twinkle-star 1.5s infinite;
+        }
+
+        @keyframes twinkle-star {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, rgba(100, 181, 246, 0.1) 0%, transparent 70%);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            animation: slideUp 0.8s ease;
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--cosmic-white);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--cosmic-cyan);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--cosmic-white);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            font-size: 2rem;
+            animation: twinkle-star 1.5s infinite;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--cosmic-accent);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .students-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.5) 0%, rgba(40, 53, 147, 0.5) 100%);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .carousel-container {
+            margin-bottom: 3rem;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.8) 0%, rgba(26, 35, 126, 0.8) 100%);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+            min-height: 450px;
+            border: 2px solid var(--cosmic-cyan);
+        }
+
+        .carousel {
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+        }
+
+        .student-card {
+            text-align: center;
+            animation: slideUp 0.6s ease;
+            position: relative;
+            z-index: 5;
+        }
+
+        .student-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--cosmic-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            transition: var(--transition);
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--cosmic-purple) 0%, var(--cosmic-blue) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--cosmic-cyan);
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .student-card:hover .student-image {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.8);
+            border-color: var(--cosmic-white);
+        }
+
+        .student-name {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--cosmic-white);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            position: relative;
+            z-index: 10;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--cosmic-cyan);
+            border: 2px solid var(--cosmic-cyan);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            font-weight: 900;
+        }
+
+        .carousel-control:hover {
+            background: rgba(0, 212, 255, 0.3);
+            transform: translateY(-50%) scale(1.15);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+        }
+
+        .carousel-control.prev {
+            left: 20px;
+        }
+
+        .carousel-control.next {
+            right: 20px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 2rem;
+        }
+
+        .indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(0, 212, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid var(--cosmic-cyan);
+        }
+
+        .indicator:hover {
+            background: var(--cosmic-cyan);
+        }
+
+        .indicator.active {
+            background: var(--cosmic-cyan);
+            width: 36px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+        }
+
+        .works-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.9) 0%, rgba(26, 35, 126, 0.9) 100%);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .works-category {
+            margin-bottom: 3rem;
+            background: rgba(26, 35, 126, 0.5);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+            border: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .category-header {
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--cosmic-cyan);
+            padding-bottom: 1rem;
+        }
+
+        .category-title {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--cosmic-white);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .work-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(124, 77, 255, 0.1) 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            color: var(--cosmic-white);
+            transition: var(--transition);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            font-weight: 700;
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+            border-color: var(--cosmic-cyan);
+        }
+
+        .work-card:hover::before {
+            left: 100%;
+        }
+
+        .work-number {
+            font-size: 1rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+            color: var(--cosmic-cyan);
+            line-height: 1.2;
+        }
+
+        .work-content {
+            position: relative;
+            z-index: 1;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-content p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .work-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .work-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 212, 255, 0.2);
+            color: var(--cosmic-cyan);
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: var(--transition);
+            border: 1px solid var(--cosmic-cyan);
+            cursor: pointer;
+        }
+
+        .work-link:hover {
+            background: var(--cosmic-cyan);
+            color: var(--cosmic-dark);
+            transform: scale(1.15);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        }
+
+        .student-works-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.9) 0%, rgba(26, 35, 126, 0.9) 100%);
+            display: none;
+        }
+
+        .student-works-section.active {
+            display: block;
+        }
+
+        .student-works-header {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(124, 77, 255, 0.1) 100%);
+            color: var(--cosmic-white);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+            border: 2px solid var(--cosmic-cyan);
+        }
+
+        .student-works-header h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--cosmic-cyan);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            border: 2px solid var(--cosmic-cyan);
+            cursor: pointer;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .back-button:hover {
+            background: var(--cosmic-cyan);
+            color: var(--cosmic-dark);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+        }
+
+        .footer {
+            background: linear-gradient(90deg, var(--cosmic-dark) 0%, var(--cosmic-blue) 50%, var(--cosmic-dark) 100%);
+            color: var(--cosmic-white);
+            padding: 3rem 0 1rem;
+            border-top: 2px solid var(--cosmic-cyan);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--cosmic-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            color: var(--cosmic-light);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--cosmic-accent);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .footer-section a:hover {
+            color: var(--cosmic-cyan);
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            color: var(--cosmic-accent);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .carousel-wrapper {
+                min-height: 350px;
+            }
+
+            .student-image {
+                width: 150px;
+                height: 150px;
+                font-size: 4rem;
+            }
+
+            .carousel-control {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .works-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .student-image {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+
+            .carousel-control {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i>
+                <span>2 группа</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showStudents(); return false;" class="nav-link"><i class="fas fa-star"></i>Студенты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">🚀</div>
+            <h1 class="hero-title">Добро пожаловать!</h1>
+            <p class="hero-subtitle">Портфолио второй подгруппы ИНФ-22</p>
+        </div>
+    </section>
+
+    <section id="studentsView" class="students-section active">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-star"></i>Наша группа<i class="fas fa-star"></i></h2>
+                <p class="section-description">Нажмите на студента, чтобы посмотреть его работы</p>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel" id="studentsCarousel">
+                        <div class="carousel-inner" id="carouselInner"></div>
+                    </div>
+                    <button class="carousel-control prev" onclick="prevSlide()">❮</button>
+                    <button class="carousel-control next" onclick="nextSlide()">❯</button>
+                </div>
+                <div class="carousel-indicators" id="indicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="studentWorksView" class="student-works-section">
+        <div class="section-container">
+            <button class="back-button" onclick="showStudents()">Вернуться к студентам</button>
+            
+            <div class="student-works-header" id="studentWorksHeader"></div>
+
+            <div class="works-category">
+                <div class="category-header">
+                    <h3 class="category-title">
+                        Практические работы (5-12)
+                    </h3>
+                </div>
+                <div class="works-grid" id="studentPracticalWorks"></div>
+            </div>
+
+            <div class="works-category">
+                <div class="category-header">
+                    <h3 class="category-title">
+                        Самостоятельная работа (1-15)
+                    </h3>
+                </div>
+                <div class="works-grid" id="studentSROWorks"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>О нас</h4>
+                    <p>Вторая подгруппа студентов ИНФ-22, создающих интересные проекты по облачным технологиям в образовании.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Email: <a href="mailto:dbaibussunova@mail.ru">dbaibussunova@mail.ru</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Портфолио второй подгруппы ИНФ-22. Создано для дисциплины "Облачные технологии в образовании"</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const students = [
+            {
+                id: 1,
+                name: 'Байбусунова Дильназ',
+                initial: 'D',
+                practicalWorks: [
+                    { number: 5, name: 'Практическая работа №5', link: 'https://docs.google.com/document/d/17fHpDzQxXs9S3u6OCcwSpI3p6mNelQoY/edit?usp=sharing&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 6, name: 'Практическая работа №6', link: 'https://docs.google.com/presentation/d/1UqlfreoiixY-jzrIJiSclKYhBab6pWKE/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 7, name: 'Практическая работа №7', link: 'https://docs.google.com/presentation/d/1tgg-l89GUIWG0HU_Rnbn_g6KLgYvSR9X/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 8, name: 'Практическая работа №8', link: 'https://docs.google.com/presentation/d/130xR8w9cFMGseC-VNdUZ8PiGmIVXYVoU/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 9, name: 'Практическая работа №9', link: 'https://docs.google.com/document/d/1Sn5kGjRyG8w8b9-1k56PstGiB0_R0C1B/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 10, name: 'Практическая работа №10', link: 'https://docs.google.com/presentation/d/1lqgk-BYD1NJJedBpfqlNG1B7SYE56b3R/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 11, name: 'Практическая работа №11', link: 'https://docs.google.com/document/d/1DhpkxZg5C1wB40KIw4_Cn7QrIzJPPchc/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 12, name: 'Практическая работа №12', link: 'https://docs.google.com/document/d/1TwJhveSC5d5qRRJsbbQmPGVSie4ISV6m/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' }
+                ],
+                sroWorks: [
+                    { number: 1, name: 'СРО №1', link: 'https://drive.google.com/file/d/1W8JO53flrPwKtaIUW88BsVi2WX4HhAwP/view?usp=drive_link' },
+                    { number: 2, name: 'СРО №2', link: 'https://drive.google.com/file/d/1IoDs-FFyKSaGstWedIlf9SgK6sui5vHx/view?usp=drive_link' },
+                    { number: 3, name: 'СРО №3', link: 'https://drive.google.com/file/d/17D36AapjANlJ1eRh-DMOiZXCbb2ZiVwG/view?usp=drive_link' },
+                    { number: 4, name: 'СРО №4', link: 'https://drive.google.com/file/d/1V9f3ugx6-5KBDi7y55IGAPS50MkgjUxH/view?usp=drive_link' },
+                    { number: 5, name: 'СРО №5', link: 'https://drive.google.com/file/d/15clk-onkij7bsNShuX6cidP__pkxL3De/view?usp=drive_link' },
+                    { number: 6, name: 'СРО №6', link: 'https://drive.google.com/file/d/1tO3IqGSLjOMyevetzqwwqCDYa3lf0C4y/view?usp=drive_link' },
+                    { number: 7, name: 'СРО №7', link: 'https://drive.google.com/file/d/1tO3IqGSLjOMyevetzqwwqCDYa3lf0C4y/view?usp=drive_link' },
+                    { number: 8, name: 'СРО №8', link: 'https://drive.google.com/file/d/1t1MsukS1hEd_4_cUSYNzZ5NGkfDcyI50/view?usp=drive_link' },
+                    { number: 9, name: 'СРО №9', link: 'https://drive.google.com/file/d/1t1MsukS1hEd_4_cUSYNzZ5NGkfDcyI50/view?usp=drive_link' },
+                    { number: 10, name: 'СРО №10', link: 'https://drive.google.com/file/d/1xKpL-xv7BzfX0r8_LaaTYQx3_Rm4qk54/view?usp=drive_link' },
+                    { number: 11, name: 'СРО №11', link: 'https://drive.google.com/file/d/1xKpL-xv7BzfX0r8_LaaTYQx3_Rm4qk54/view?usp=drive_link' },
+                    { number: 12, name: 'СРО №12', link: 'https://drive.google.com/file/d/1TjAUX2dZwQhVgoAxXaq5YA0_wdYM1s-S/view?usp=drive_link' },
+                    { number: 13, name: 'СРО №13', link: 'https://drive.google.com/file/d/108tk0EbvLHMVK06qLOva4RuTrVejDDVO/view?usp=drive_link' },
+                    { number: 14, name: 'СРО №14', link: 'https://drive.google.com/file/d/108tk0EbvLHMVK06qLOva4RuTrVejDDVO/view?usp=drive_link' },
+                    { number: 15, name: 'СРО №15', link: 'https://drive.google.com/file/d/1VDwCV0IrXrGiTzWTfrbsiwgYd1sqrd6w/view?usp=drive_link' }
+                ]
+            },
+            {
+                id: 2,
+                name: 'Жолдаспаев Дамир',
+                initial: 'D',
+                practicalWorks: [
+                    { number: 5, name: 'Практическая работа №5', link: 'https://docs.google.com/document/d/17fHpDzQxXs9S3u6OCcwSpI3p6mNelQoY/edit?usp=sharing&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 6, name: 'Практическая работа №6', link: 'https://docs.google.com/presentation/d/1UqlfreoiixY-jzrIJiSclKYhBab6pWKE/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 7, name: 'Практическая работа №7', link: 'https://docs.google.com/presentation/d/1tgg-l89GUIWG0HU_Rnbn_g6KLgYvSR9X/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 8, name: 'Практическая работа №8', link: 'https://docs.google.com/document/d/1fdMxqpF-A5mzwbEIY0ue4vXT6hyQDjiPPfwB7XJ5QiA/edit?usp=drive_link' },
+                    { number: 9, name: 'Практическая работа №9', link: 'https://docs.google.com/spreadsheets/d/1klN1rEy9ELgmEj5LtiF3zUkkcSjoksgvpxPvYRiGkOA/edit?usp=sharing' },
+                    { number: 10, name: 'Практическая работа №10', link: 'https://docs.google.com/presentation/d/1zq-84DFOpa8hu6-GNUJlB2K9SHUMubDP/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 11, name: 'Практическая работа №11', link: 'https://docs.google.com/document/d/1agPk41zB0XajK9POYJ_f75hNQHn8DeyXkEeqkH7P2mA/edit?usp=drive_link' },
+                    { number: 12, name: 'Практическая работа №12', link: 'https://drive.google.com/drive/folders/1MAowZjV5dgztywgDZUfR6TVedLWjWUgh?usp=sharing' }
+                ],
+                sroWorks: [
+                    { number: 1, name: 'СРО №1', link: 'https://docs.google.com/presentation/d/1xkcsi_QXfNL0nY0mJtAb9xsydhes-bu1/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 2, name: 'СРО №2', link: 'https://docs.google.com/presentation/d/1xkcsi_QXfNL0nY0mJtAb9xsydhes-bu1/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 3, name: 'СРО №3', link: 'https://docs.google.com/presentation/d/1K3DGOMZkgYM94mCheMikjuiKVJLZskpQ/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 4, name: 'СРО №4', link: 'https://docs.google.com/presentation/d/12NoRQFRgTEPlaqqvQmVLKMNij_Y0rDJL/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 5, name: 'СРО №5', link: 'https://docs.google.com/presentation/d/1UnCuEJj08G8FHCiYH_LN67idvDJVoUWJ/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 6, name: 'СРО №6', link: 'https://docs.google.com/presentation/d/1TYcZVP75HJSp-9yxaV7WOowDAegL2Oho/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 7, name: 'СРО №7', link: 'https://docs.google.com/presentation/d/1IBaFd5djaP6xle1HolAEW_K4h5cBwqvt/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 8, name: 'СРО №8', link: 'https://docs.google.com/presentation/d/1CQXsRA_T8ChxZOnln-0P2fNrNe6moIzL/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 9, name: 'СРО №9', link: 'https://docs.google.com/presentation/d/1XT-Vr7cdZ1Mi1m9hBhoFNw4kKmCzztHm/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 10, name: 'СРО №10', link: 'https://docs.google.com/presentation/d/1AjLt8qb4Ay5HQedeWALScm1nGBuAvbji/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 11, name: 'СРО №11', link: 'https://docs.google.com/presentation/d/1t0Z0s4cggYCQfIIlfQs1lPf1kjV1PsL1/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 12, name: 'СРО №12', link: 'https://docs.google.com/presentation/d/1JUr3KEqQ5m1qYdTrDdpK1Td-VO04v9og/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 13, name: 'СРО №13', link: 'https://docs.google.com/presentation/d/1JUr3KEqQ5m1qYdTrDdpK1Td-VO04v9og/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 14, name: 'СРО №14', link: 'https://docs.google.com/presentation/d/1JUr3KEqQ5m1qYdTrDdpK1Td-VO04v9og/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 15, name: 'СРО №15', link: 'https://docs.google.com/presentation/d/1JUr3KEqQ5m1qYdTrDdpK1Td-VO04v9og/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' }
+                ]
+            },
+            {
+                id: 3,
+                name: 'Жумабаев Санжар',
+                initial: 'S',
+                practicalWorks: [
+                    { number: 5, name: 'Практическая работа №5', link: 'https://docs.google.com/document/d/17fHpDzQxXs9S3u6OCcwSpI3p6mNelQoY/edit?usp=sharing&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 6, name: 'Практическая работа №6', link: 'https://docs.google.com/presentation/d/1UqlfreoiixY-jzrIJiSclKYhBab6pWKE/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 7, name: 'Практическая работа №7', link: 'https://docs.google.com/presentation/d/1tgg-l89GUIWG0HU_Rnbn_g6KLgYvSR9X/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 8, name: 'Практическая работа №8', link: 'https://drive.google.com/file/d/1uc887GOsqUid8eL97oQDtOHlUNWZtAhj/view?usp=drive_link' },
+                    { number: 9, name: 'Практическая работа №9', link: 'https://docs.google.com/document/d/1O0zMJSwoWerAXzr0iEUFYb8H46qbbPgX/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { 
+                        number: 10, 
+                        name: 'Практическая работа №10', 
+                        links: [
+                            { url: 'https://docs.google.com/presentation/d/1zq-84DFOpa8hu6-GNUJlB2K9SHUMubDP/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true', label: 'В1' },
+                            { url: 'https://docs.google.com/presentation/d/1BUwXv03Rt9qwAuY2-sH3Z9xxgjUtYosV/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true', label: 'В2' },
+                            { url: 'https://create.kahoot.it/details/639bb548-229b-4d0a-96b3-2a896a9b2d5a', label: 'К' }
+                        ]
+                    },
+                    { number: 11, name: 'Практическая работа №11', link: 'https://docs.google.com/document/d/1X4yiP0rQSe9CG3pMatHed3Z7uz9d6N85orwGzLxVJTw/edit?usp=drive_link' },
+                    { number: 12, name: 'Практическая работа №12', link: 'https://docs.google.com/document/d/1bBp89dvRIFncBiN3ojC9K6eIOKr4_Isd/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' }
+                ],
+                sroWorks: [
+                    { number: 1, name: 'СРО №1', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 2, name: 'СРО №2', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 3, name: 'СРО №3', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 4, name: 'СРО №4', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 5, name: 'СРО №5', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 6, name: 'СРО №6', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 7, name: 'СРО №7', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 8, name: 'СРО №8', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 9, name: 'СРО №9', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 10, name: 'СРО №10', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 11, name: 'СРО №11', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 12, name: 'СРО №12', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 13, name: 'СРО №13', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 14, name: 'СРО №14', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' },
+                    { number: 15, name: 'СРО №15', link: 'https://drive.google.com/file/d/12QsZjLA8TpPlXLZ4WiZdpQU6C22OOSxU/view?usp=drive_link' }
+                ]
+            },
+            {
+                id: 4,
+                name: 'Кумаров Алиби',
+                initial: 'A',
+                practicalWorks: [
+                    { number: 5, name: 'Практическая работа №5', link: 'https://docs.google.com/document/d/17fHpDzQxXs9S3u6OCcwSpI3p6mNelQoY/edit?usp=sharing&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 6, name: 'Практическая работа №6', link: 'https://docs.google.com/presentation/d/1UqlfreoiixY-jzrIJiSclKYhBab6pWKE/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 7, name: 'Практическая работа №7', link: 'https://docs.google.com/presentation/d/1tgg-l89GUIWG0HU_Rnbn_g6KLgYvSR9X/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { 
+                        number: 8, 
+                        name: 'Практическая работа №8', 
+                        links: [
+                            { url: 'https://drive.google.com/file/d/1tbVHLiYcvOZcIekY93P6zAUb7bI7iP-s/view?usp=drive_link', label: 'Файл' },
+                            { url: 'https://create.kahoot.it/details/f1ebe3a1-5eed-4907-b290-b96c8924aee7', label: 'К' }
+                        ]
+                    },
+                    { number: 9, name: 'Практическая работа №9', link: 'https://drive.google.com/file/d/14jmEh5TI_a9LwM6PnU3h77Zylp9KvMe2/view?usp=drive_link' },
+                    { 
+                        number: 10, 
+                        name: 'Практическая работа №10', 
+                        links: [
+                            { url: 'https://docs.google.com/presentation/d/1zq-84DFOpa8hu6-GNUJlB2K9SHUMubDP/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true', label: 'В1' },
+                            { url: 'https://docs.google.com/presentation/d/1BUwXv03Rt9qwAuY2-sH3Z9xxgjUtYosV/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true', label: 'В2' },
+                            { url: 'https://create.kahoot.it/details/639bb548-229b-4d0a-96b3-2a896a9b2d5a', label: 'K1' },
+                            { url: 'https://create.kahoot.it/details/d9e9c3da-2a1b-4b16-a9eb-9a5530baff79', label: 'K2' },
+                            { url: 'https://create.kahoot.it/details/edef59d1-f522-4e22-b530-e449f9809f1f', label: 'K3' }
+                        ]
+                    },
+                    { number: 11, name: 'Практическая работа №11', link: 'https://docs.google.com/document/d/1UNGhvGc7wwZGqRcdopsDEn1FlmeoSN0i/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 12, name: 'Практическая работа №12', link: 'https://docs.google.com/document/d/1l-4BXUC1DZSY1SHVUCEJgZEbIkQY-GAX/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' }
+                ],
+                sroWorks: [
+                    { number: 1, name: 'СРО №1', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 2, name: 'СРО №2', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 3, name: 'СРО №3', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 4, name: 'СРО №4', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 5, name: 'СРО №5', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 6, name: 'СРО №6', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 7, name: 'СРО №7', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 8, name: 'СРО №8', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 9, name: 'СРО №9', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 10, name: 'СРО №10', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 11, name: 'СРО №11', link: 'https://docs.google.com/presentation/d/11HBmbnlENj-C9Jpjn34tr6uQUSOoJsJk/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 12, name: 'СРО №12', link: 'https://docs.google.com/presentation/d/1ie13p7jkKjhcxZfUPqEjTl0gmq0eW8ku/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 13, name: 'СРО №13', link: 'https://docs.google.com/presentation/d/1XmsCjpUXBYUHoU41WwJZf1MadZKk3YfA/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 14, name: 'СРО №14', link: 'https://docs.google.com/presentation/d/1Z85-eR6YVE3nToQ46jWzPAHsgVKDvVty/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 15, name: 'СРО №15', link: 'https://docs.google.com/presentation/d/1-1FcqgmkDriKrZIc8vCdDeppXXMdP5Zo/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' }
+                ]
+            },
+            {
+                id: 5,
+                name: 'Райник Владислав',
+                initial: 'V',
+                practicalWorks: [
+                    { number: 5, name: 'Практическая работа №5', link: 'https://docs.google.com/document/d/17fHpDzQxXs9S3u6OCcwSpI3p6mNelQoY/edit?usp=sharing&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 6, name: 'Практическая работа №6', link: 'https://docs.google.com/presentation/d/1UqlfreoiixY-jzrIJiSclKYhBab6pWKE/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 7, name: 'Практическая работа №7', link: 'https://docs.google.com/presentation/d/1tgg-l89GUIWG0HU_Rnbn_g6KLgYvSR9X/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 8, name: 'Практическая работа №8', link: 'https://docs.google.com/document/d/1fdMxqpF-A5mzwbEIY0ue4vXT6hyQDjiPPfwB7XJ5QiA/edit?usp=sharing' },
+                    { 
+                        number: 9, 
+                        name: 'Практическая работа №9', 
+                        links: [
+                            { url: 'https://docs.google.com/presentation/d/1l1G-YABO87rupGO0MrOgI9jR_tDr23Tv/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true', label: 'В1' },
+                            { url: 'https://docs.google.com/presentation/d/1DAIRYjvvKxjJ13_L_CzxlUrKYCUO9qUq/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true', label: 'В2' }
+                        ]
+                    },
+                    { number: 10, name: 'Практическая работа №10', link: 'https://docs.google.com/presentation/d/1BUwXv03Rt9qwAuY2-sH3Z9xxgjUtYosV/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 11, name: 'Практическая работа №11', link: 'https://docs.google.com/document/d/1eiZR-4cXn8YWznEtQ4Q_svn4VoJfCyQp/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 12, name: 'Практическая работа №12', link: 'https://docs.google.com/document/d/1bJ4cYJ8kxJTXEuSreFglKVGtYXFGzAcr/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' }
+                ],
+                sroWorks: [
+                    { number: 1, name: 'СРО №1', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 2, name: 'СРО №2', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 3, name: 'СРО №3', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 4, name: 'СРО №4', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 5, name: 'СРО №5', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 6, name: 'СРО №6', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 7, name: 'СРО №7', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 8, name: 'СРО №8', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 9, name: 'СРО №9', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 10, name: 'СРО №10', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 11, name: 'СРО №11', link: 'https://drive.google.com/file/d/1rc6fZ4DwkmUW5AxgEa9E-loTuVuSv-FV/view?usp=drive_link' },
+                    { number: 12, name: 'СРО №12', link: 'https://docs.google.com/document/d/1wYp0NxnWMr3Z7wh_MgFO4Wr9CgZGgJj7/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 13, name: 'СРО №13', link: 'https://docs.google.com/document/d/1Gf7BewH4UdxdJrMPqtYVdGRjO0KsWJds/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 14, name: 'СРО №14', link: 'https://docs.google.com/document/d/1fNAlCB3QG8efZJCh7RTPovWVEyFEBpC3/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' },
+                    { number: 15, name: 'СРО №15', link: 'https://docs.google.com/document/d/1FDxoVXPBEyn31raMLyPhNpUNkmHjLjy4/edit?usp=drive_link&ouid=108644058516746366086&rtpof=true&sd=true' }
+                ]
+            }
+        ];
+
+        let currentSlide = 0;
+        let currentStudent = null;
+        const totalSlides = students.length;
+        let autoSlideInterval;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initCarousel();
+            setupEventListeners();
+            startAutoSlide();
+        });
+
+        function initCarousel() {
+            const carouselInner = document.getElementById('carouselInner');
+            const indicatorsContainer = document.getElementById('indicators');
+
+            carouselInner.innerHTML = '';
+            indicatorsContainer.innerHTML = '';
+
+            students.forEach((student, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.innerHTML = `
+                    <div class="student-card" onclick="selectStudent(${student.id})">
+                        <div class="student-image">${student.initial}</div>
+                        <h3 class="student-name">${student.name}</h3>
+                    </div>
+                `;
+                carouselInner.appendChild(slide);
+
+                const indicator = document.createElement('div');
+                indicator.className = 'indicator';
+                if (index === 0) indicator.classList.add('active');
+                indicator.onclick = () => {
+                    stopAutoSlide();
+                    goToSlide(index);
+                    startAutoSlide();
+                };
+                indicatorsContainer.appendChild(indicator);
+            });
+
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const carouselInner = document.getElementById('carouselInner');
+            const indicators = document.querySelectorAll('.indicator');
+
+            carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            indicators.forEach((indicator, index) => {
+                indicator.classList.remove('active');
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        function selectStudent(studentId) {
+            currentStudent = students.find(s => s.id === studentId);
+            if (currentStudent) {
+                showStudentWorks();
+            }
+        }
+
+        function showStudentWorks() {
+            if (!currentStudent) return;
+
+            document.getElementById('studentsView').classList.remove('active');
+            document.getElementById('studentWorksView').classList.add('active');
+
+            const header = document.getElementById('studentWorksHeader');
+            header.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <div style="font-size: 5rem; font-weight: 900; color: #00d4ff; text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);">${currentStudent.initial}</div>
+                    <div style="text-align: left;">
+                        <h2>${currentStudent.name}</h2>
+                    </div>
+                </div>
+            `;
+
+            showStudentPracticalWorks();
+            showStudentSROWorks();
+
+            const worksSection = document.getElementById('studentWorksView');
+            worksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function showStudentPracticalWorks() {
+            const container = document.getElementById('studentPracticalWorks');
+            container.innerHTML = '';
+
+            currentStudent.practicalWorks.forEach(work => {
+                const card = createWorkCard(work);
+                container.appendChild(card);
+            });
+        }
+
+        function showStudentSROWorks() {
+            const container = document.getElementById('studentSROWorks');
+            container.innerHTML = '';
+
+            currentStudent.sroWorks.forEach(work => {
+                const card = createWorkCard(work);
+                container.appendChild(card);
+            });
+        }
+
+        function createWorkCard(work) {
+            const card = document.createElement('div');
+            card.className = 'work-card';
+            
+            let linksHTML = '';
+            
+            if (work.links && work.links.length > 0) {
+                linksHTML = '<div class="work-links">';
+                work.links.forEach(link => {
+                    linksHTML += `<a href="${link.url}" target="_blank" class="work-link" title="${link.label}">•</a>`;
+                });
+                linksHTML += '</div>';
+            } 
+            else if (work.link) {
+                linksHTML = `<div class="work-links">
+                    <a href="${work.link}" target="_blank" class="work-link" title="Открыть">•</a>
+                </div>`;
+            }
+            
+            card.innerHTML = `
+                <div class="work-number">${work.name}</div>
+                <div class="work-content">
+                    <p style="font-size: 0.85rem; color: #00d4ff; font-weight: 900; margin-bottom: 0.5rem;">Выполнено</p>
+                    ${linksHTML}
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function showStudents() {
+            document.getElementById('studentsView').classList.add('active');
+            document.getElementById('studentWorksView').classList.remove('active');
+            currentStudent = null;
+            
+            const studentsSection = document.getElementById('studentsView');
+            studentsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function setupEventListeners() {
+            const carousel = document.querySelector('.carousel-wrapper');
+
+            carousel.addEventListener('mouseenter', stopAutoSlide);
+            carousel.addEventListener('mouseleave', startAutoSlide);
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'ArrowLeft') {
+                    stopAutoSlide();
+                    prevSlide();
+                    startAutoSlide();
+                }
+                if (event.key === 'ArrowRight') {
+                    stopAutoSlide();
+                    nextSlide();
+                    startAutoSlide();
+                }
+            });
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            carousel.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+
+            carousel.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, false);
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    stopAutoSlide();
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    startAutoSlide();
+                }
+            }
+        }
+
+        console.log('%cПортфолио второй подгруппы ИНФ-22 загружено!', 'color: #00d4ff; font-size: 16px; font-weight: bold; text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);');
+    </script>
+</body>
+</html>
